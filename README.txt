@@ -1,0 +1,1 @@
+VenueWatch is a simple app that will notify you when an event is announced at your favorite venue. 
