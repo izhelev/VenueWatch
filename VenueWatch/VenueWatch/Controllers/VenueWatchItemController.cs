@@ -15,26 +15,22 @@ namespace VenueWatch.Controllers
             _currentUserRetriever = currentUserRetriever;
         }
 
-        // GET api/<controller>
         public IEnumerable<IVenueWatchRepository> Get()
         {
             return _venueWatchRepository.GetByUserId(_currentUserRetriever.GetCurrentUserId());
         }
 
-        // GET api/<controller>/5
         public VenueWatchItem Get(int id)
         {
             return _venueWatchRepository.Get(id);
         }
 
-        // POST api/<controller>
         public int PostTodoItem(VenueWatchItem venueWatchItem)
         {
             return _venueWatchRepository.Save(venueWatchItem);
 
         }
 
-        // PUT api/<controller>/5
         public void PutItem(int id, VenueWatchItem venueWatchItem)
         {
             _venueWatchRepository.Save(venueWatchItem);
