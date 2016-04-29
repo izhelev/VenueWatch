@@ -4,6 +4,7 @@ using System.Web.Http;
 
 namespace VenueWatch.Controllers
 {
+    [Authorize]
     public class VenueWatchItemController : ApiController
     {
         private readonly IVenueWatchRepository _venueWatchRepository;
@@ -42,6 +43,14 @@ namespace VenueWatch.Controllers
         Guid GetCurrentUserId();
     }
 
+    public class CurrentUserRetriever : ICurrentUserRetriever
+    {
+        public Guid GetCurrentUserId()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class VenueWatchItem
     {
         public int VenueId { get; set; }
@@ -52,5 +61,23 @@ namespace VenueWatch.Controllers
         IEnumerable<IVenueWatchRepository> GetByUserId(Guid userId);
         VenueWatchItem Get(int id);
         int Save(object venueWatchItem);
+    }
+
+    public class VenueWatchRepository : IVenueWatchRepository
+    {
+        public IEnumerable<IVenueWatchRepository> GetByUserId(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public VenueWatchItem Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Save(object venueWatchItem)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
