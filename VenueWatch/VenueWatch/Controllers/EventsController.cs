@@ -5,7 +5,6 @@ using GogoKit.Models.Response;
 
 namespace VenueWatch.Controllers
 {
-    [Authorize]
     public class EventsController : ApiController
     {
         private readonly IViagogoClient _viagogoClient;

@@ -8,7 +8,6 @@ using GogoKit.Models.Response;
 
 namespace VenueWatch.Controllers
 {
-    [Authorize]
     public class VenueController : ApiController
     {
         private readonly IViagogoClient _viagogoClient;

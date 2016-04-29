@@ -6,7 +6,6 @@ using Entities;
 
 namespace VenueWatch.Controllers
 {
-    [Authorize]
     public class VenueWatchItemController : ApiController
     {
         private readonly IVenueWatchRepository _venueWatchRepository;
