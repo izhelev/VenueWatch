@@ -3,13 +3,14 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
+using BLL;
+using Data;
 using GogoKit;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using SimpleInjector.Advanced;
 using SimpleInjector.Integration.WebApi;
-using VenueWatch.Controllers;
 using VenueWatch.Models;
 
 [assembly: WebActivator.PostApplicationStartMethod(typeof(VenueWatch.App_Start.SimpleInjectorInitializer), "Initialize")]
@@ -23,7 +24,7 @@ namespace VenueWatch.App_Start
 
     public static class SimpleInjectorInitializer
     {
-
+        //TODO: Move this to the app config
         private const string CLIENT_ID = "TaRJnBcw1ZvYOXENCtj5";
         private const string CLIENT_SECRET = "ixGDUqRA5coOHf3FQysjd704BPptwbk6zZreELW2aCYSmIT8XJ9ngvN1MuKV";
 
@@ -65,6 +66,7 @@ namespace VenueWatch.App_Start
                     client.TokenStore.SetTokenAsync(token);
                 }
                 return client;
+
             });
             container.RegisterPerWebRequest<ApplicationUserManager>(() => new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext())));
             container.RegisterPerWebRequest<IAuthenticationManager>(() =>

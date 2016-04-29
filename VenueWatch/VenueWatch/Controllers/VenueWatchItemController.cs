@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using BLL;
+using Data;
+using Entities;
 
 namespace VenueWatch.Controllers
 {
@@ -36,48 +38,5 @@ namespace VenueWatch.Controllers
         {
             _venueWatchRepository.Save(venueWatchItem);
         }     
-    }
-
-    public interface ICurrentUserRetriever
-    {
-        Guid GetCurrentUserId();
-    }
-
-    public class CurrentUserRetriever : ICurrentUserRetriever
-    {
-        public Guid GetCurrentUserId()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class VenueWatchItem
-    {
-        public int VenueId { get; set; }
-    }
-
-    public interface IVenueWatchRepository
-    {
-        IEnumerable<IVenueWatchRepository> GetByUserId(Guid userId);
-        VenueWatchItem Get(int id);
-        int Save(object venueWatchItem);
-    }
-
-    public class VenueWatchRepository : IVenueWatchRepository
-    {
-        public IEnumerable<IVenueWatchRepository> GetByUserId(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public VenueWatchItem Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save(object venueWatchItem)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
